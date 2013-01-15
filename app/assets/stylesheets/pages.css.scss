@@ -1,3 +1,73 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'compass/css3';
+
+.search {
+  @include box-sizing(border-box);
+  @include box-shadow(0 5px 10px #444);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #222;
+  border-bottom: 1px solid #ccc;
+  padding: 1em 1.5em;
+  width: 100%;
+  text-align: center;
+
+  input {
+    @include box-sizing(border-box);
+    @include transition(box-shadow 0.35s ease-in);
+    max-width: 100%;
+    width: 500px;
+    &:focus,
+    &:hover {
+      @include box-shadow(0 0 9px 3px gold);
+      outline: none;
+    }
+  }
+}
+
+.programs {
+  width: 90%;
+  max-width: 800px;
+  margin: 5.5em auto;
+
+
+  li {
+    width: 25%;
+    float: left;
+    position: relative;
+
+
+    @media (max-width: 640px) {
+      width: 33.33333%;
+    }
+
+    @media (max-width: 400px) {
+      width: 50%;
+    }
+
+    .logo {
+      width: 100%;
+    }
+
+    .poster {
+      width: 100%;
+      opacity: 0;
+      @include transition(opacity 0.35s ease-in);
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include box-shadow(0 0 9px 3px gold);
+    }
+
+    a {
+      &:hover,
+      &:focus {
+        outline: none;
+        .poster {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
