@@ -1,2 +1,9 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+.search
+  %input{ type: 'text', placeholder: 'Type a name of a program to search' }
+%ul.programs
+  - @programs.each do |program|
+    - p = program['program']
+    %li{ data: { name: p['name'].downcase } }
+      %a{ href: "http://www.kanal5play.se/program/#{p['id']}" }
+        %img.logo{ src: p['whiteLogoUrl'] || p ['colorLogoUrl'], alt: p['name'] }
+        %img.poster{ src: p['photoWithLogoUrl'], alt: p['name'] }
