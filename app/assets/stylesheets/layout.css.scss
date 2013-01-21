@@ -9,3 +9,11 @@ input {
   @include border-radius(3px);
   border: 1px solid #ccc;
 }
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
